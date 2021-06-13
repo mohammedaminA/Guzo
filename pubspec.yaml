@@ -65,5 +65,5 @@ flutter:
   
     - family: Brand Bold
       fonts:
-        - asset: fonts/bolt-semibold
+        - asset: fonts/bolt-semibold.ttf
   
