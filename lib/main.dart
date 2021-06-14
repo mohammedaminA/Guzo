@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guzo/login_screen.dart';
 
 import 'Screens/main_screen.dart';
 
@@ -13,13 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: "Signatra",
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity
-      ),
-      home: MainScreen(),
+          fontFamily: "Signatra",
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
