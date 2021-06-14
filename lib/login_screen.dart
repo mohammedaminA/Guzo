@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
                     labelText: 'Email',
                     labelStyle: TextStyle(fontSize: 30, color: Colors.white),
                     fillColor: Colors.white,
-                    hoverColor: Colors.white),s
+                    hoverColor: Colors.white),a
               )
             ],
           )
