@@ -67,6 +67,10 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         TextField(
                           keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontSize: 20,
+                          ),
                           decoration: InputDecoration(
                             hintText: 'Email Address',
                             hintStyle: TextStyle(
@@ -82,7 +86,30 @@ class LoginScreen extends StatelessWidget {
                               Icons.email_rounded,
                             ),
                           ),
-                        )
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        TextField(
+                          obscureText: true,
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontSize: 20,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide.none),
+                            filled: true,
+                            fillColor: Colors.grey,
+                            prefixIcon: Icon(Icons.vpn_key),
+                          ),
+                        ),
                       ],
                     ),
                   ),
