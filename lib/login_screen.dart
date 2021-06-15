@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                           height: size.height / 5,
                         ),
                         SizedBox(
-                          height: 15,
+                          height: size.height * 0.07,
                         ),
                         TextField(
                           keyboardType: TextInputType.emailAddress,
@@ -86,17 +86,17 @@ class LoginScreen extends StatelessWidget {
                                 fontFamily: 'Roboto',
                                 color: Colors.black),
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(40.0),
                                 borderSide: BorderSide.none),
                             filled: true,
-                            fillColor: Colors.grey,
+                            fillColor: Colors.lightBlueAccent,
                             prefixIcon: Icon(
                               Icons.email_rounded,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 50,
+                          height: size.height * 0.05,
                         ),
                         TextField(
                           obscureText: true,
@@ -111,13 +111,33 @@ class LoginScreen extends StatelessWidget {
                                 fontFamily: 'Roboto',
                                 color: Colors.black),
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(40.0),
                                 borderSide: BorderSide.none),
                             filled: true,
-                            fillColor: Colors.grey,
+                            fillColor: Colors.lightBlueAccent,
                             prefixIcon: Icon(Icons.vpn_key),
                           ),
                         ),
+                        SizedBox(
+                          height: size.height * 0.07,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SignInButton.mini(
+                              buttonType: ButtonType.google,
+                              onPressed: () {},
+                            ),
+                            SignInButton.mini(
+                              buttonType: ButtonType.facebook,
+                              onPressed: () {},
+                            ),
+                            SignInButton.mini(
+                              buttonType: ButtonType.microsoft,
+                              onPressed: () {},
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
