@@ -67,15 +67,16 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         TextField(
                           decoration: InputDecoration(
-                            labelText: 'Email Address',
-                            labelStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide.none),
-                          ),
+                              labelText: 'Email Address',
+                              labelStyle: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  borderSide: BorderSide.none),
+                              filled: true,
+                              fillColor: Colors.grey),
                         )
                       ],
                     ),
