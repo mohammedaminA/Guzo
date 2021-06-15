@@ -66,17 +66,22 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextField(
+                          keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
-                              labelText: 'Email Address',
-                              labelStyle: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Roboto',
-                                  color: Colors.black),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  borderSide: BorderSide.none),
-                              filled: true,
-                              fillColor: Colors.grey),
+                            hintText: 'Email Address',
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide.none),
+                            filled: true,
+                            fillColor: Colors.grey,
+                            prefixIcon: Icon(
+                              Icons.email_rounded,
+                            ),
+                          ),
                         )
                       ],
                     ),
