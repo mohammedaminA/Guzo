@@ -36,6 +36,7 @@ class LoginScreen extends StatelessWidget {
                             fontSize: 60,
                             fontWeight: FontWeight.w500),
                       ),
+                      SizedBox(height: 10.0),
                       Text(
                         "Addis Ababa's top ride hailing app",
                         style: TextStyle(
