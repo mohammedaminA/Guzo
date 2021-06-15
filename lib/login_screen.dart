@@ -3,29 +3,33 @@ import 'package:flutter/material.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            bottom: height / double.infinity,
-            height: height,
-            child: Image.asset('images/12.jpg'),
+      body: SingleChildScrollView(
+        child: Container(
+          constraints:
+              BoxConstraints(maxHeight: size.height, maxWidth: size.width),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blueAccent, Colors.lightBlueAccent, Colors.blue],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Column(
             children: [
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: TextStyle(fontSize: 30, color: Colors.white),
-                    fillColor: Colors.white,
-                    hoverColor: Colors.white),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Text('Login'),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 5,
               )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
