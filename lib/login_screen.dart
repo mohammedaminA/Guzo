@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_button/sign_button.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -62,9 +63,16 @@ class LoginScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(24.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Image.asset(
+                          'images/Guzo.png',
+                          height: size.height / 5,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
                         TextField(
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
