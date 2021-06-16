@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: size.height * 0.05,
+                          height: size.height * 0.04,
                         ),
                         TextField(
                           obscureText: true,
@@ -119,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -136,7 +136,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Login',
-                            style: TextStyle(fontSize: 25, color: Colors.white),
+                            style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
                           onPressed: () {},
                         ),
