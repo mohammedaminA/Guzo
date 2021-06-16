@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guzo/login_screen.dart';
 import 'package:sign_button/sign_button.dart';
 
 class SignUp extends StatelessWidget {
@@ -131,7 +132,7 @@ class SignUp extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return SignUp();
+                                  return LoginScreen();
                                 },
                               ),
                             );
@@ -154,7 +155,7 @@ class SignUp extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Login',
+                            'Sign Up',
                             style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
                           onPressed: () {},
