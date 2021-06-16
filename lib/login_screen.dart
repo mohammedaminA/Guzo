@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                           height: size.height / 5,
                         ),
                         SizedBox(
-                          height: size.height * 0.07,
+                          height: size.height * 0.03,
                         ),
                         TextField(
                           keyboardType: TextInputType.emailAddress,
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: size.height * 0.04,
+                          height: size.height * 0.03,
                         ),
                         TextField(
                           obscureText: true,
@@ -117,6 +117,16 @@ class LoginScreen extends StatelessWidget {
                             fillColor: Colors.lightBlueAccent,
                             prefixIcon: Icon(Icons.vpn_key),
                           ),
+                        ),
+                        TextButton(
+                          child: Text(
+                            'No account yet? Register here',
+                            style: TextStyle(
+                                textBaseline: TextBaseline.alphabetic,
+                                color: Colors.black,
+                                fontFamily: 'Roboto'),
+                          ),
+                          onPressed: () {},
                         ),
                         SizedBox(
                           height: 15,
@@ -141,7 +151,7 @@ class LoginScreen extends StatelessWidget {
                           onPressed: () {},
                         ),
                         SizedBox(
-                          height: size.height * 0.05,
+                          height: size.height * 0.04,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
