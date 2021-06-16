@@ -119,7 +119,29 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: size.height * 0.07,
+                          height: 10,
+                        ),
+                        TextButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.lightBlueAccent),
+                            minimumSize: MaterialStateProperty.all<Size>(
+                              Size(150, 25),
+                            ),
+                            shape: MaterialStateProperty.all<OutlinedBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            'Login',
+                            style: TextStyle(fontSize: 25, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          height: size.height * 0.05,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
