@@ -26,7 +26,9 @@ class SignUp extends StatelessWidget {
               Expanded(
                 flex: 5,
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.white),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
                 ),
               )
             ],
