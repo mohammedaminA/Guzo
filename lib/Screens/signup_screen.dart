@@ -31,7 +31,7 @@ class SignUp extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Login',
+                        'Sign Up',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 60,
