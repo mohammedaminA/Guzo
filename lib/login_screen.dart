@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guzo/Screens/signup_screen.dart';
 import 'package:sign_button/sign_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -126,7 +127,16 @@ class LoginScreen extends StatelessWidget {
                                 color: Colors.black,
                                 fontFamily: 'Roboto'),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return SignUp();
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           height: 15,
