@@ -120,7 +120,7 @@ class SignUp extends StatelessWidget {
                         ),
                         TextButton(
                           child: Text(
-                            'No account yet? Register here',
+                            'Already Have An Account? Login here',
                             style: TextStyle(
                                 textBaseline: TextBaseline.alphabetic,
                                 color: Colors.black,
