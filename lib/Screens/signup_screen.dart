@@ -67,9 +67,55 @@ class SignUp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          'images/Guzo.png',
-                          height: size.height / 5,
+                        SizedBox(
+                          height: size.height * 0.03,
+                        ),
+                        TextField(
+                          keyboardType: TextInputType.name,
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontSize: 20,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Full Name',
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(40.0),
+                                borderSide: BorderSide.none),
+                            filled: true,
+                            fillColor: Colors.lightBlueAccent,
+                            prefixIcon: Icon(
+                              Icons.person,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.03,
+                        ),
+                        TextField(
+                          keyboardType: TextInputType.phone,
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontSize: 20,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Phone Number',
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(40.0),
+                                borderSide: BorderSide.none),
+                            filled: true,
+                            fillColor: Colors.lightBlueAccent,
+                            prefixIcon: Icon(
+                              Icons.phone,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: size.height * 0.03,
@@ -139,7 +185,7 @@ class SignUp extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 10,
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -161,7 +207,7 @@ class SignUp extends StatelessWidget {
                           onPressed: () {},
                         ),
                         SizedBox(
-                          height: size.height * 0.04,
+                          height: size.height * 0.03,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
