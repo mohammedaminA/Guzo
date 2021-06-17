@@ -70,7 +70,11 @@ class SignUp extends StatelessWidget {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                       CustomTextWidget(textInputType: TextInputType.name, hintText: 'Phone Number', icon: Icons.person, obscureText: false)
+                        CustomTextWidget(
+                            textInputType: TextInputType.name,
+                            hintText: 'Phone Number',
+                            icon: Icons.person,
+                            obscureText: false),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
