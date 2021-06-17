@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:guzo/login_screen.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:guzo/widgets/custom_input_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final nameController = TextEditingController();
+    final emailController = TextEditingController();
+    final phoneController = TextEditingController();
+    final passwordController = TextEditingController();
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -75,15 +81,20 @@ class SignUp extends StatelessWidget {
                             textInputType: TextInputType.name,
                             hintText: 'Full Name',
                             icon: Icons.person,
-                            obscureText: false),
+                            obscureText: false,
+                            controller: nameController,
+                            onChanged: () {}),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
                         CustomTextWidget(
-                            textInputType: TextInputType.phone,
-                            hintText: 'Phone Number',
-                            icon: Icons.phone,
-                            obscureText: false),
+                          textInputType: TextInputType.phone,
+                          hintText: 'Phone Number',
+                          icon: Icons.phone,
+                          obscureText: false,
+                          onChanged: () {},
+                          controller: phoneController,
+                        ),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
@@ -92,15 +103,20 @@ class SignUp extends StatelessWidget {
                           textInputType: TextInputType.emailAddress,
                           icon: Icons.email,
                           obscureText: false,
+                          onChanged: () {},
+                          controller: emailController,
                         ),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
                         CustomTextWidget(
-                            textInputType: TextInputType.text,
-                            hintText: 'Password',
-                            icon: Icons.vpn_key,
-                            obscureText: true),
+                          textInputType: TextInputType.text,
+                          hintText: 'Password',
+                          icon: Icons.vpn_key,
+                          obscureText: true,
+                          onChanged: () {},
+                          controller: passwordController,
+                        ),
                         TextButton(
                           child: Text(
                             'Already Have An Account? Login here',
@@ -140,7 +156,9 @@ class SignUp extends StatelessWidget {
                             'Sign Up',
                             style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            registerUser();
+                          },
                         ),
                         SizedBox(
                           height: size.height * 0.03,
@@ -174,3 +192,5 @@ class SignUp extends StatelessWidget {
     );
   }
 }
+
+registerUser() async {}
