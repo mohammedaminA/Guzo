@@ -5,18 +5,24 @@ class CustomTextWidget extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final bool obscureText;
+  final Function onChanged;
+  final TextEditingController controller;
 
   CustomTextWidget(
       {@required this.textInputType,
       @required this.hintText,
       @required this.icon,
-      @required this.obscureText});
+      @required this.obscureText,
+      @required this.onChanged,
+      this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       obscureText: obscureText,
+      controller: controller,
       keyboardType: textInputType,
+      onChanged: onChanged(),
       style: TextStyle(
         fontFamily: 'Roboto',
         fontSize: 20,

@@ -5,13 +5,12 @@ import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-    final emailController = TextEditingController();
-    final phoneController = TextEditingController();
-    final passwordController = TextEditingController();
-
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -157,7 +156,7 @@ class SignUp extends StatelessWidget {
                             style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
                           onPressed: () {
-                            registerUser();
+                            registerUser(context);
                           },
                         ),
                         SizedBox(
@@ -191,6 +190,13 @@ class SignUp extends StatelessWidget {
       ),
     );
   }
-}
 
-registerUser() async {}
+  final firebase = FirebaseAuth.instance;
+  registerUser(BuildContext context) async {
+    final User user = (await firebase.createUserWithEmailAndPassword(
+      email: emailController.text,
+      password: passwordController.text,
+    ))
+        .user;
+  }
+}
