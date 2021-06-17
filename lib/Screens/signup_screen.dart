@@ -198,5 +198,11 @@ class SignUp extends StatelessWidget {
       password: passwordController.text,
     ))
         .user;
+
+    if (user != null) {
+      // persist to database
+    } else {
+      //error message
+    }
   }
 }
