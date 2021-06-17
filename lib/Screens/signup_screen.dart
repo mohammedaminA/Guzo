@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guzo/login_screen.dart';
 import 'package:sign_button/sign_button.dart';
+import 'package:guzo/widgets/custom_input_field.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -168,44 +169,6 @@ class SignUp extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomTextWidget extends StatelessWidget {
-  final TextInputType textInputType;
-  final String hintText;
-  final IconData icon;
-  final bool obscureText;
-
-  CustomTextWidget(
-      {@required this.textInputType,
-      @required this.hintText,
-      @required this.icon,
-      @required this.obscureText});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      keyboardType: textInputType,
-      style: TextStyle(
-        fontFamily: 'Roboto',
-        fontSize: 20,
-      ),
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle:
-            TextStyle(fontSize: 20, fontFamily: 'Roboto', color: Colors.black),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(40.0),
-            borderSide: BorderSide.none),
-        filled: true,
-        fillColor: Colors.lightBlueAccent,
-        prefixIcon: Icon(
-          icon,
         ),
       ),
     );
