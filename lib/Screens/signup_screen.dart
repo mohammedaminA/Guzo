@@ -120,27 +120,10 @@ class SignUp extends StatelessWidget {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: 'Email Address',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(
-                              Icons.email_rounded,
-                            ),
-                          ),
+                        CustomTextWidget(
+                          hintText: 'Email',
+                          textInputType: TextInputType.emailAddress,
+                          icon: Icons.email,
                         ),
                         SizedBox(
                           height: size.height * 0.03,
@@ -233,6 +216,41 @@ class SignUp extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextWidget extends StatelessWidget {
+  final TextInputType textInputType;
+  final String hintText;
+  final IconData icon;
+
+  CustomTextWidget(
+      {@required this.textInputType,
+      @required this.hintText,
+      @required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      keyboardType: textInputType,
+      style: TextStyle(
+        fontFamily: 'Roboto',
+        fontSize: 20,
+      ),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle:
+            TextStyle(fontSize: 20, fontFamily: 'Roboto', color: Colors.black),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40.0),
+            borderSide: BorderSide.none),
+        filled: true,
+        fillColor: Colors.lightBlueAccent,
+        prefixIcon: Icon(
+          icon,
         ),
       ),
     );
