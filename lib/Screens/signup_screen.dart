@@ -70,53 +70,15 @@ class SignUp extends StatelessWidget {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          keyboardType: TextInputType.name,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: 'Full Name',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(
-                              Icons.person,
-                            ),
-                          ),
-                        ),
+                       CustomTextWidget(textInputType: TextInputType.name, hintText: 'Phone Number', icon: Icons.person, obscureText: false)
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          keyboardType: TextInputType.phone,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
+                        CustomTextWidget(
+                            textInputType: TextInputType.phone,
                             hintText: 'Phone Number',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(
-                              Icons.phone,
-                            ),
-                          ),
-                        ),
+                            icon: Icons.phone,
+                            obscureText: false),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
@@ -124,30 +86,16 @@ class SignUp extends StatelessWidget {
                           hintText: 'Email',
                           textInputType: TextInputType.emailAddress,
                           icon: Icons.email,
+                          obscureText: false,
                         ),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          obscureText: true,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
+                        CustomTextWidget(
+                            textInputType: TextInputType.text,
                             hintText: 'Password',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(Icons.vpn_key),
-                          ),
-                        ),
+                            icon: Icons.vpn_key,
+                            obscureText: true),
                         TextButton(
                           child: Text(
                             'Already Have An Account? Login here',
@@ -226,15 +174,18 @@ class CustomTextWidget extends StatelessWidget {
   final TextInputType textInputType;
   final String hintText;
   final IconData icon;
+  final bool obscureText;
 
   CustomTextWidget(
       {@required this.textInputType,
       @required this.hintText,
-      @required this.icon});
+      @required this.icon,
+      @required this.obscureText});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: obscureText,
       keyboardType: textInputType,
       style: TextStyle(
         fontFamily: 'Roboto',
