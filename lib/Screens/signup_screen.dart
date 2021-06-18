@@ -5,19 +5,14 @@ import 'package:sign_button/sign_button.dart';
 import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
+class SignUp extends StatelessWidget {
+  TextEditingController nameController = TextEditingController();
 
-class _SignUpState extends State<SignUp> {
-  final nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
-  final emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
-  final phoneController = TextEditingController();
-
-  final passwordController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +82,12 @@ class _SignUpState extends State<SignUp> {
                           height: size.height * 0.03,
                         ),
                         CustomTextWidget(
-                            textInputType: TextInputType.name,
-                            hintText: 'Full Name',
-                            icon: Icons.person,
-                            obscureText: false,
-                            controller: nameController,
-                            onChanged: () {}),
+                          textInputType: TextInputType.name,
+                          hintText: 'Full Name',
+                          icon: Icons.person,
+                          obscureText: false,
+                          controller: nameController,
+                        ),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
@@ -101,7 +96,6 @@ class _SignUpState extends State<SignUp> {
                           hintText: 'Phone Number',
                           icon: Icons.phone,
                           obscureText: false,
-                          onChanged: () {},
                           controller: phoneController,
                         ),
                         SizedBox(
@@ -112,7 +106,6 @@ class _SignUpState extends State<SignUp> {
                           textInputType: TextInputType.emailAddress,
                           icon: Icons.email,
                           obscureText: false,
-                          onChanged: () {},
                           controller: emailController,
                         ),
                         SizedBox(
@@ -123,7 +116,6 @@ class _SignUpState extends State<SignUp> {
                           hintText: 'Password',
                           icon: Icons.vpn_key,
                           obscureText: true,
-                          onChanged: () {},
                           controller: passwordController,
                         ),
                         TextButton(
@@ -212,6 +204,7 @@ class _SignUpState extends State<SignUp> {
 
     if (user != null) {
       // persist to database
+      print('Success');
     } else {
       //error message
     }
