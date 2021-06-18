@@ -4,6 +4,8 @@ import 'package:guzo/login_screen.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:guzo/main.dart';
 
 class SignUp extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
@@ -204,12 +206,12 @@ class SignUp extends StatelessWidget {
 
     if (user != null) {
       // persist to database
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MainScreen(),
-        ),
-      );
+      userRef.child(user.uid);
+      Map userData = {
+        "name": nameController.text,
+        "email": emailController.text,
+        "phone": phoneController.text,
+      };
     } else {
       //error message
     }
