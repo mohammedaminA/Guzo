@@ -79,18 +79,22 @@ class LoginScreen extends StatelessWidget {
                           height: size.height * 0.03,
                         ),
                         CustomTextWidget(
-                            textInputType: TextInputType.emailAddress,
-                            hintText: 'Email',
-                            icon: Icons.email,
-                            obscureText: false),
+                          textInputType: TextInputType.emailAddress,
+                          hintText: 'Email',
+                          icon: Icons.email,
+                          obscureText: false,
+                          controller: emailController,
+                        ),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
                         CustomTextWidget(
-                            textInputType: TextInputType.visiblePassword,
-                            hintText: 'Password',
-                            icon: Icons.vpn_key,
-                            obscureText: true),
+                          textInputType: TextInputType.visiblePassword,
+                          hintText: 'Password',
+                          icon: Icons.vpn_key,
+                          obscureText: true,
+                          controller: passwordController,
+                        ),
                         TextButton(
                           child: Text(
                             'No account yet? Register here',
