@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guzo/Screens/main_screen.dart';
 import 'package:guzo/Screens/signup_screen.dart';
 import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:sign_button/sign_button.dart';
@@ -7,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class LoginScreen extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  FirebaseAuth firebase = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -170,5 +172,18 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void login(BuildContext context) async {}
+  void login(BuildContext context) async {
+    User user = (await firebase.signInWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text))
+        .user;
+
+    if (user != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainScreen(),
+        ),
+      );
+    }
+  }
 }
