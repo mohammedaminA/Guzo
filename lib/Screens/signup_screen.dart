@@ -6,13 +6,13 @@ import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {
-  TextEditingController nameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
 
-  TextEditingController emailController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
-  TextEditingController phoneController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
