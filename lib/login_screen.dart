@@ -5,6 +5,8 @@ import 'package:sign_button/sign_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatelessWidget {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -84,26 +86,11 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          obscureText: true,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
+                        CustomTextWidget(
+                            textInputType: TextInputType.visiblePassword,
                             hintText: 'Password',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(Icons.vpn_key),
-                          ),
-                        ),
+                            icon: Icons.vpn_key,
+                            obscureText: true),
                         TextButton(
                           child: Text(
                             'No account yet? Register here',
