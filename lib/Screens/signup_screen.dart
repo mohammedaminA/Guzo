@@ -206,12 +206,13 @@ class SignUp extends StatelessWidget {
 
     if (user != null) {
       // persist to database
-      userRef.child(user.uid);
       Map userData = {
         "name": nameController.text,
         "email": emailController.text,
         "phone": phoneController.text,
       };
+
+      userRef.child(user.uid).set(userData);
     } else {
       //error message
     }
