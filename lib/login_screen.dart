@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guzo/Screens/signup_screen.dart';
 import 'package:sign_button/sign_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -158,7 +159,9 @@ class LoginScreen extends StatelessWidget {
                             'Login',
                             style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            login(context);
+                          },
                         ),
                         SizedBox(
                           height: size.height * 0.04,
@@ -191,4 +194,6 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+  void login(BuildContext context) async {}
 }
