@@ -6,8 +6,8 @@ import 'package:sign_button/sign_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatelessWidget {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   FirebaseAuth firebase = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
