@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guzo/Screens/signup_screen.dart';
+import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -75,28 +76,11 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: 'Email Address',
-                            hintStyle: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                                borderSide: BorderSide.none),
-                            filled: true,
-                            fillColor: Colors.lightBlueAccent,
-                            prefixIcon: Icon(
-                              Icons.email_rounded,
-                            ),
-                          ),
-                        ),
+                        CustomTextWidget(
+                            textInputType: TextInputType.emailAddress,
+                            hintText: 'Email',
+                            icon: Icons.email,
+                            obscureText: false),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
