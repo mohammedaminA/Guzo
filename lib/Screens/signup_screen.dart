@@ -204,7 +204,12 @@ class SignUp extends StatelessWidget {
 
     if (user != null) {
       // persist to database
-      print('Success');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainScreen(),
+        ),
+      );
     } else {
       //error message
     }
