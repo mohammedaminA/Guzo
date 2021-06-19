@@ -213,6 +213,12 @@ class SignUp extends StatelessWidget {
       };
 
       userRef.child(user.uid).set(userData);
+      Navigator.push(
+        context,
+        (MaterialPageRoute(
+          builder: (context) => MainScreen(),
+        )),
+      );
     } else {
       //error message
     }
