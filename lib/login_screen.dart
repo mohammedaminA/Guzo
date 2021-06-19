@@ -4,11 +4,13 @@ import 'package:guzo/Screens/signup_screen.dart';
 import 'package:guzo/widgets/custom_input_field.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final FirebaseAuth firebase = FirebaseAuth.instance;
+  final googleSignin = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -148,7 +150,25 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             SignInButton.mini(
                               buttonType: ButtonType.google,
-                              onPressed: () async {},
+                              onPressed: () async {
+                                final googleUser = await googleSignin.signIn();
+                                if (googleUser != null) {
+                                  final googleAuth =
+                                      await googleUser.authentication;
+                                  final credential =
+                                      GoogleAuthProvider.credential(
+                                          accessToken: googleAuth.accessToken,
+                                          idToken: googleAuth.idToken);
+                                  await firebase
+                                      .signInWithCredential(credential);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MainScreen(),
+                                    ),
+                                  );
+                                }
+                              },
                             ),
                             SignInButton.mini(
                               buttonType: ButtonType.facebook,
