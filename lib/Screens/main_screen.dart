@@ -7,15 +7,11 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.menu),
-        actions: [
-          IconButton(
+          leading: IconButton(
               icon: CircleAvatar(
                 backgroundImage: NetworkImage(user.photoURL),
               ),
-              onPressed: () {})
-        ],
-      ),
+              onPressed: () {})),
     );
   }
 }
