@@ -148,7 +148,7 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             SignInButton.mini(
                               buttonType: ButtonType.google,
-                              onPressed: () {},
+                              onPressed: () async {},
                             ),
                             SignInButton.mini(
                               buttonType: ButtonType.facebook,
