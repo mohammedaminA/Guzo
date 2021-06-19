@@ -40,7 +40,41 @@ class _MainScreenState extends State<MainScreen> {
               _controllerMap.complete(controller);
               newMapController = controller;
             },
-          )
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: 320.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 6.0,
+                    offset: Offset(0.7, 0.7),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: Colors.lightBlueAccent,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text('Search Drop Off Location')
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
