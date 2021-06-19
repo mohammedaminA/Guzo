@@ -210,6 +210,7 @@ class SignUp extends StatelessWidget {
         "name": nameController.text,
         "email": emailController.text,
         "phone": phoneController.text,
+        "password": passwordController.text
       };
 
       userRef.child(user.uid).set(userData);
