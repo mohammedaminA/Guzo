@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  FirebaseAuth firebase = FirebaseAuth.instance;
+  final FirebaseAuth firebase = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

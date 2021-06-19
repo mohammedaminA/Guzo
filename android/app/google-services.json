@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "218929774295",
+    "firebase_url": "https://uber-clone-27356-default-rtdb.firebaseio.com",
     "project_id": "uber-clone-27356",
     "storage_bucket": "uber-clone-27356.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "218929774295-jsjm2ichc190spjcdc9bqk6f7me8hfv0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohammedaminA.guzo",
+            "certificate_hash": "00b02312e93f22341f3a2954c162e9a8f50a14cd"
+          }
+        },
         {
           "client_id": "218929774295-vu8fc6ahrj3bvdpdojteojmde5r47q56.apps.googleusercontent.com",
           "client_type": 3
