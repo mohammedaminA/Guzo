@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:guzo/Screens/signup_screen.dart';
 import 'package:guzo/widgets/divider.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MainScreen extends StatefulWidget {
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -17,11 +17,22 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  Position currentPosition;
   Completer<GoogleMapController> _controllerMap = Completer();
 
   GoogleMapController newMapController;
 
   User user = FirebaseAuth.instance.currentUser;
+
+  void getCurrentLocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
+    currentPosition = position;
+    LatLng latLng = LatLng(position.latitude, position.longitude);
+    CameraPosition cameraPosition = CameraPosition(target: latLng, zoom: 28);
+    newMapController
+        .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,12 +90,18 @@ class _MainScreenState extends State<MainScreen> {
       body: Stack(
         children: [
           GoogleMap(
+            padding: EdgeInsets.only(bottom: 300),
             mapType: MapType.normal,
             myLocationButtonEnabled: true,
             initialCameraPosition: MainScreen._kGooglePlex,
+            myLocationEnabled: true,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
             onMapCreated: (GoogleMapController controller) {
               _controllerMap.complete(controller);
               newMapController = controller;
+
+              getCurrentLocation();
             },
           ),
           Positioned(
@@ -92,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
             right: 0,
             bottom: 0,
             child: Container(
-              height: 320.0,
+              height: 300.0,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
