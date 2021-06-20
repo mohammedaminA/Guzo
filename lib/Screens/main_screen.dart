@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:guzo/Screens/signup_screen.dart';
 import 'package:guzo/widgets/divider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -57,7 +58,15 @@ class _MainScreenState extends State<MainScreen> {
             ListTile(
               title: Text('Settings'),
               leading: Icon(Icons.settings),
-            )
+            ),
+            ListTile(
+                title: Text('Logout'),
+                leading: Icon(Icons.logout),
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.push(context,
+                      (MaterialPageRoute(builder: (context) => SignUp())));
+                })
           ],
         ),
       ),
