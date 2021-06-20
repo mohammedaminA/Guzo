@@ -18,6 +18,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   Position currentPosition;
+  double bottomPaddingMap = 0;
   Completer<GoogleMapController> _controllerMap = Completer();
 
   GoogleMapController newMapController;
@@ -29,7 +30,8 @@ class _MainScreenState extends State<MainScreen> {
         desiredAccuracy: LocationAccuracy.best);
     currentPosition = position;
     LatLng latLng = LatLng(position.latitude, position.longitude);
-    CameraPosition cameraPosition = CameraPosition(target: latLng, zoom: 28);
+    CameraPosition cameraPosition =
+        CameraPosition(target: latLng, zoom: 14.4746);
     newMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
@@ -90,7 +92,7 @@ class _MainScreenState extends State<MainScreen> {
       body: Stack(
         children: [
           GoogleMap(
-            padding: EdgeInsets.only(bottom: 300),
+            padding: EdgeInsets.only(bottom: bottomPaddingMap),
             mapType: MapType.normal,
             myLocationButtonEnabled: true,
             initialCameraPosition: MainScreen._kGooglePlex,
@@ -100,7 +102,9 @@ class _MainScreenState extends State<MainScreen> {
             onMapCreated: (GoogleMapController controller) {
               _controllerMap.complete(controller);
               newMapController = controller;
-
+              setState(() {
+                bottomPaddingMap = 300.0;
+              });
               getCurrentLocation();
             },
           ),
