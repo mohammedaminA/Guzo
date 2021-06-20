@@ -24,13 +24,49 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(user.photoURL),
+                    radius: 50.0,
+                  ),
+                  Text('${user.displayName}')
+                ],
+              ),
+            ),
+            ListTile(
+              title: Text('Wallet'),
+              leading: Icon(Icons.wallet_giftcard),
+            ),
+            ListTile(
+              title: Text('History'),
+              leading: Icon(Icons.history),
+            ),
+            ListTile(
+              title: Text('Settings'),
+              leading: Icon(Icons.settings),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
           leading: IconButton(
               icon: CircleAvatar(
                 backgroundImage: NetworkImage(user.photoURL),
               ),
-              onPressed: () {})),
+              onPressed: () => _scaffoldKey.currentState.openDrawer())),
       body: Stack(
         children: [
           GoogleMap(
@@ -51,8 +87,8 @@ class _MainScreenState extends State<MainScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
                 ),
                 boxShadow: [
                   BoxShadow(
@@ -85,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(5.0),
+                        borderRadius: BorderRadius.circular(25.0),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black54,
@@ -95,17 +131,20 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                         ],
                       ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.search,
-                            color: Colors.lightBlueAccent,
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          Text('Search Drop Off Location')
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.search,
+                              color: Colors.lightBlueAccent,
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Text('Search Drop Off Location')
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
