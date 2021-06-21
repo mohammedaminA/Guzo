@@ -1,1 +1,3 @@
-String apiKey = 'AIzaSyAmX1bZ1tB8pULaRZsrSmZn2tW-3gc00Mg';
+class MapConfig {
+  static String apiKey = 'AIzaSyAmX1bZ1tB8pULaRZsrSmZn2tW-3gc00Mg';
+}

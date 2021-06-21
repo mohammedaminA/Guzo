@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:guzo/Screens/signup_screen.dart';
+import 'package:guzo/helpers/helperMethods.dart';
 import 'package:guzo/widgets/divider.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -34,6 +35,9 @@ class _MainScreenState extends State<MainScreen> {
         CameraPosition(target: latLng, zoom: 14.4746);
     newMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    String address = await HelperMethods.searchCoordinateAddress(position);
+    print(address);
   }
 
   @override
