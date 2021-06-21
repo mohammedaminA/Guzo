@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:guzo/dataHandler/appData.dart';
 import 'package:guzo/login_screen.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:provider/provider.dart';
 
 import 'Screens/main_screen.dart';
 
@@ -18,13 +20,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: LoginScreen(),
-      debugShowCheckedModeBanner: false,
+    return ChangeNotifierProvider(
+      create: (context) => AppData(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity),
+        home: LoginScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

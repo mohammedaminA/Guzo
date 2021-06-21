@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:guzo/Screens/signup_screen.dart';
+import 'package:guzo/dataHandler/appData.dart';
 import 'package:guzo/helpers/helperMethods.dart';
 import 'package:guzo/widgets/divider.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -36,12 +38,15 @@ class _MainScreenState extends State<MainScreen> {
     newMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
 
-    String address = await HelperMethods.searchCoordinateAddress(position);
+    String address =
+        await HelperMethods.searchCoordinateAddress(position, context);
     print(address);
   }
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppData>(context);
+
     GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return Scaffold(
       key: _scaffoldKey,
@@ -196,7 +201,9 @@ class _MainScreenState extends State<MainScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Add home'),
+                            Text(provider.pickUpLocation != null
+                                ? provider.pickUpLocation.placeName
+                                : 'Add home'),
                             SizedBox(
                               height: 4.0,
                             ),
