@@ -23,7 +23,7 @@ class HelperMethods {
       userPickUpAddress.longitude = position.longitude;
       userPickUpAddress.placeName = placeAddress;
 
-      Provider.of<AppData>(context)
+      Provider.of<AppData>(context, listen: false)
           .updatePickUpLocationAddress(userPickUpAddress);
     }
 

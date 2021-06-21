@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     currentPosition = position;
     LatLng latLng = LatLng(position.latitude, position.longitude);
     CameraPosition cameraPosition =
-        CameraPosition(target: latLng, zoom: 14.4746);
+        CameraPosition(target: latLng, zoom: 34.4746);
     newMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
 
