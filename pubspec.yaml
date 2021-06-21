@@ -30,6 +30,7 @@ dependencies:
   geolocator: ^7.1.0
   google_maps_flutter: ^2.0.6
   google_sign_in: ^5.0.4
+  http: ^0.13.3
   sign_button: ^2.0.0
 
 dev_dependencies:
