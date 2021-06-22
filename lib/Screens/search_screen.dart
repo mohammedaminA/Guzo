@@ -130,6 +130,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                     bottom: 8.0),
                               ),
                               controller: dropOffController,
+                              onChanged: (value) {
+                                findPlace(value);
+                              },
                             ),
                           ),
                         ),
@@ -148,9 +151,16 @@ class _SearchScreenState extends State<SearchScreen> {
   void findPlace(String placeName) async {
     if (placeName.length > 1) {
       String url =
-          'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$placeName&key=${MapConfig.apiKey}&sessiontoken=1234567890';
+          'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$placeName&key=${MapConfig.apiKey}&sessiontoken=1234567890&components=country:et';
 
       var response = await RequestHelper.getRequest(url);
+
+      if (response == 'failed') {
+        return;
+      } else {
+        print('prediction:');
+        print(response);
+      }
     }
   }
 }
