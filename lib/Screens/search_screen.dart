@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:guzo/dataHandler/appData.dart';
 import 'package:guzo/helpers/requestHelper.dart';
+import 'package:guzo/models/placePredictions.dart';
 import 'package:provider/provider.dart';
 import 'package:guzo/configs/map_config.dart';
 
@@ -157,7 +158,14 @@ class _SearchScreenState extends State<SearchScreen> {
 
       if (response == 'failed') {
         return;
-      } else {}
+      } else {
+        if (response['status'] == 'OK') {
+          var predictions = response['predictions'];
+          var placesList = (predictions as List)
+              .map((e) => PlacePredictions.fromJson(e))
+              .toList();
+        }
+      }
     }
   }
 }
