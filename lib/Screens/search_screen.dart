@@ -169,3 +169,16 @@ class _SearchScreenState extends State<SearchScreen> {
     }
   }
 }
+
+class PredictionTile extends StatelessWidget {
+  PredictionTile({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [],
+      ),
+    );
+  }
+}
