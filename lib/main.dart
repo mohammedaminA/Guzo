@@ -4,6 +4,7 @@ import 'package:guzo/dataHandler/appData.dart';
 import 'package:guzo/login_screen.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'Screens/main_screen.dart';
 
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: LoginScreen(),
+        home: FirebaseAuth.instance.currentUser != null
+            ? MainScreen()
+            : LoginScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
