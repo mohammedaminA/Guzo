@@ -157,10 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
       if (response == 'failed') {
         return;
-      } else {
-        print('prediction:');
-        print(response);
-      }
+      } else {}
     }
   }
 }
