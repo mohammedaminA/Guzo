@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:guzo/dataHandler/appData.dart';
 import 'package:guzo/helpers/requestHelper.dart';
 import 'package:guzo/models/placePredictions.dart';
+import 'package:guzo/widgets/divider.dart';
 import 'package:provider/provider.dart';
 import 'package:guzo/configs/map_config.dart';
 
@@ -15,7 +16,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController pickUpController = TextEditingController();
   TextEditingController dropOffController = TextEditingController();
-  List<PlacePredictions> predictionsList;
+  List<PlacePredictions> predictionsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -145,6 +146,23 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
           ),
+          (predictionsList.length > 0)
+              ? Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) => PredictionTile(
+                      placePredictions: predictionsList[index],
+                    ),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        DividerWidget(),
+                    itemCount: predictionsList.length,
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                  ),
+                )
+              : Container()
         ],
       ),
     );
@@ -168,6 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
           setState(() {
             predictionsList = placesList;
+            print(predictions);
           });
         }
       }
@@ -182,28 +201,40 @@ class PredictionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
+      child: Column(
         children: [
-          Icon(Icons.add_location),
-          SizedBox(width: 14.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          SizedBox(
+            height: 8.0,
+          ),
+          Row(
             children: [
-              Text(
-                placePredictions.main_text,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(
-                height: 3.0,
-              ),
-              Text(
-                placePredictions.secondary_text,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.grey, fontSize: 12.0),
-              ),
+              Icon(Icons.add_location),
+              SizedBox(width: 14.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      placePredictions.main_text,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 3.0,
+                    ),
+                    Text(
+                      placePredictions.secondary_text,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                    ),
+                  ],
+                ),
+              )
             ],
-          )
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
         ],
       ),
     );
