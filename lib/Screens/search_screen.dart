@@ -183,11 +183,13 @@ class _SearchScreenState extends State<SearchScreen> {
           var placesList = (predictions as List)
               .map((e) => PlacePredictions.fromJson(e))
               .toList();
+          print('predictions: $predictionsList ');
 
           setState(() {
             predictionsList = placesList;
-            print(predictions);
           });
+
+          print(predictionsList);
         }
       }
     }
