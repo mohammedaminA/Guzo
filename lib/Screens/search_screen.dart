@@ -15,6 +15,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController pickUpController = TextEditingController();
   TextEditingController dropOffController = TextEditingController();
+  List<PlacePredictions> predictionsList;
 
   @override
   Widget build(BuildContext context) {
@@ -164,6 +165,10 @@ class _SearchScreenState extends State<SearchScreen> {
           var placesList = (predictions as List)
               .map((e) => PlacePredictions.fromJson(e))
               .toList();
+
+          setState(() {
+            predictionsList = placesList;
+          });
         }
       }
     }
@@ -171,13 +176,35 @@ class _SearchScreenState extends State<SearchScreen> {
 }
 
 class PredictionTile extends StatelessWidget {
-  PredictionTile({Key key}) : super(key: key);
+  final PlacePredictions placePredictions;
+  PredictionTile({Key key, this.placePredictions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: [],
+        children: [
+          Icon(Icons.add_location),
+          SizedBox(width: 14.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                placePredictions.main_text,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(
+                height: 3.0,
+              ),
+              Text(
+                placePredictions.secondary_text,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.grey, fontSize: 12.0),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
