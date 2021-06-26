@@ -27,6 +27,6 @@ class HelperMethods {
           .updatePickUpLocationAddress(userPickUpAddress);
     }
 
-    return placeAddress;s
+    return placeAddress;
   }
 }
