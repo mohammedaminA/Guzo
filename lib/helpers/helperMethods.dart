@@ -28,5 +28,5 @@ class HelperMethods {
     }
 
     return placeAddress;
-  }
+  }a
 }
