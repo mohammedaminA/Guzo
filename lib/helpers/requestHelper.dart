@@ -11,7 +11,7 @@ class RequestHelper {
       var decodedData = jsonDecode(jsonData);
       return decodedData;
     } else {
-      return "failed";a
+      return "failed";
     }
   }
 }
