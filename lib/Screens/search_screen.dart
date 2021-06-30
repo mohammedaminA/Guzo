@@ -151,7 +151,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   padding:
                       EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                   child: ListView.separated(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsets.all(0.0),
                     itemBuilder: (context, index) => PredictionTile(
                       placePredictions: predictionsList[index],
                     ),
