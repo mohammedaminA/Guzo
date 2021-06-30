@@ -16,7 +16,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController pickUpController = TextEditingController();
   TextEditingController dropOffController = TextEditingController();
-  List<PlacePredictions> predictionsList = [];
+  List<PlacePredictions> placePredictionsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -146,18 +146,18 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
           ),
-          (predictionsList.length > 0)
+          (placePredictionsList.length > 0)
               ? Padding(
                   padding:
                       EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                   child: ListView.separated(
                     padding: EdgeInsets.all(0.0),
                     itemBuilder: (context, index) => PredictionTile(
-                      placePredictions: predictionsList[index],
+                      placePredictions: placePredictionsList[index],
                     ),
                     separatorBuilder: (BuildContext context, int index) =>
                         DividerWidget(),
-                    itemCount: predictionsList.length,
+                    itemCount: placePredictionsList.length,
                     shrinkWrap: true,
                     physics: ClampingScrollPhysics(),
                   ),
@@ -186,10 +186,8 @@ class _SearchScreenState extends State<SearchScreen> {
           print('Place Predictions:::: ');
           print(placesList);
           setState(() {
-            predictionsList = placesList;
+            placePredictionsList = placesList;
           });
-
-          print(predictionsList);
         }
       }
     }
