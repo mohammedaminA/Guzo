@@ -186,7 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
           print('Place Predictions:::: ');
           print(placesList);
           setState(() {
-            placePredictionsList = placesList;sasas
+            placePredictionsList = placesList;sasa
           });
         }
       }
