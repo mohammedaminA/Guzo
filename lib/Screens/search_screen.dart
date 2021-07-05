@@ -162,7 +162,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     physics: ClampingScrollPhysics(),
                   ),
                 )
-              : Container()sada
+              : Container()sad
         ],
       ),
     );
