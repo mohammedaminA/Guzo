@@ -188,7 +188,7 @@ class _SearchScreenState extends State<SearchScreen> {
           setState(() {
             placePredictionsList = placesList;
           });
-        }s
+        }
       }
     }
   }
